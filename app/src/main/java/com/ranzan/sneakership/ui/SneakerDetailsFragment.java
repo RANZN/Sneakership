@@ -55,7 +55,7 @@ public class SneakerDetailsFragment extends Fragment {
     private void addItemToCart() {
         Bundle bundle = new Bundle();
         bundle.putParcelable("cart", item);
-        navController.navigate(R.id.action_sneakerDetailsFragment_to_checkOutFragment);
+        navController.navigate(R.id.action_sneakerDetailsFragment_to_checkOutFragment,bundle);
     }
 
     private void initViews(View view) {
