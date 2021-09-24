@@ -1,6 +1,7 @@
 package com.ranzan.sneakership.ui;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ranzan.sneakership.ItemClicked;
 import com.ranzan.sneakership.R;
 import com.ranzan.sneakership.adapter.Adapter;
 import com.ranzan.sneakership.api.ResponseItem;
@@ -25,10 +29,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SneakerFragment extends Fragment {
+public class SneakerFragment extends Fragment implements ItemClicked {
     private RecyclerView recyclerView;
     private Adapter adapter;
     private List<ResponseItem> list = new ArrayList<>();
+    private NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +45,7 @@ public class SneakerFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
         initViews(view);
         setRecyclerView();
         fetchData();
@@ -62,7 +68,7 @@ public class SneakerFragment extends Fragment {
     }
 
     private void setRecyclerView() {
-        adapter = new Adapter(list);
+        adapter = new Adapter(list, this);
         recyclerView.setAdapter(adapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -70,5 +76,14 @@ public class SneakerFragment extends Fragment {
 
     private void initViews(View v) {
         recyclerView = v.findViewById(R.id.recyclerView);
+    }
+
+
+    @Override
+    public void OnItemClicked(int position) {
+        ResponseItem responseItem = list.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("data", (Parcelable) responseItem);
+        navController.navigate(R.id.action_sneakerFragment_to_sneakerDetailsFragment, bundle);
     }
 }

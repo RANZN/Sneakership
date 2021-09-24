@@ -7,17 +7,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.ranzan.sneakership.ItemClicked;
 import com.ranzan.sneakership.R;
 import com.ranzan.sneakership.api.ResponseItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<ResponseItem> list;
+    private ItemClicked itemClicked;
+
+    public Adapter(List<ResponseItem> list, ItemClicked itemClicked) {
+        this.list = list;
+        this.itemClicked = itemClicked;
+    }
 
     public Adapter(List<ResponseItem> list) {
         this.list = list;
@@ -27,7 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, itemClicked);
     }
 
     @Override
@@ -44,9 +51,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView image, add;
         private TextView name, price;
+        private ConstraintLayout constraintLayout;
+        private ItemClicked itemClicked;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, ItemClicked itemClicked) {
             super(itemView);
+            this.itemClicked = itemClicked;
             initViews(itemView);
         }
 
@@ -55,6 +65,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             add = v.findViewById(R.id.add);
             name = v.findViewById(R.id.productName);
             price = v.findViewById(R.id.productPrice);
+            constraintLayout = v.findViewById(R.id.itemClick);
+            constraintLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClicked.OnItemClicked(getAdapterPosition());
+                }
+            });
         }
 
         void setData(ResponseItem responseItem) {

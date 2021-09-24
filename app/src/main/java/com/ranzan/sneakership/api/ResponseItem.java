@@ -1,9 +1,12 @@
 package com.ranzan.sneakership.api;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseItem{
+public class ResponseItem implements Parcelable {
 
 	@SerializedName("sizes")
 	private List<SizesItem> sizes;
@@ -80,5 +83,15 @@ public class ResponseItem{
 
 	public List<ColoursItem> getColours(){
 		return colours;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+
 	}
 }
