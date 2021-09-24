@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class CheckOutFragment extends Fragment {
-    private List<ResponseItem> list = new ArrayList<>();
+    private static List<ResponseItem> list = new ArrayList<>();
     private RecyclerView recyclerView;
     private BagAdapter adapter;
     private static int total = 0;
@@ -37,7 +37,7 @@ public class CheckOutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvTotal = view.findViewById(R.id.tvTotal);
+        tvTotal = view.findViewById(R.id.bagPrice);
         recyclerView = view.findViewById(R.id.bagRecycerView);
         setRecyclerView();
         if (getArguments() != null) {
