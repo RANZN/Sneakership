@@ -14,9 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ranzan.sneakership.R;
 import com.ranzan.sneakership.adapter.Adapter;
 import com.ranzan.sneakership.api.ResponseItem;
+import com.ranzan.sneakership.network.ApiService;
+import com.ranzan.sneakership.network.Network;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SneakerFragment extends Fragment {
@@ -40,7 +46,19 @@ public class SneakerFragment extends Fragment {
     }
 
     private void fetchData() {
+        ApiService apiService = Network.getRetrofitInstance().create(ApiService.class);
+        apiService.getResponse().enqueue(new Callback<List<ResponseItem>>() {
+            @Override
+            public void onResponse(Call<List<ResponseItem>> call, Response<List<ResponseItem>> response) {
+                list.addAll(response.body());
+                adapter.notifyDataSetChanged();
+            }
 
+            @Override
+            public void onFailure(Call<List<ResponseItem>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void setRecyclerView() {
