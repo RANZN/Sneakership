@@ -5,13 +5,16 @@
       <map>
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/home_bg.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/ic_cart.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/ic_down.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/ic_home.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/ic_search.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/product_bg.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/drawable/round_bg.xml" value="0.20555555555555555" />
-        <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/fragment_check_out.xml" value="0.2359375" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/fragment_sneaker.xml" value="0.2" />
         <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/fragment_sneaker_details.xml" value="0.25" />
+        <entry key="..\:/Users/PRAKASH RANJAN/AndroidStudioProjects/Evaluations/Sneakership2/app/src/main/res/layout/item_layout.xml" value="0.264" />
       </map>
     </option>
   </component>
