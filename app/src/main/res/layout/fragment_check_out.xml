@@ -28,6 +28,8 @@
         app:layout_constraintTop_toTopOf="@id/back" />
 
     <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintBottom_toTopOf="@id/checkOut"
+        android:paddingBottom="100dp"
         android:id="@+id/bagRecycerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
